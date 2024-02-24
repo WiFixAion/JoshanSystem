@@ -108,3 +108,57 @@ for (var i = 0; i < deleteButtons.length; i++) {
     }
   });
 }
+
+let inactivityTime;
+
+// Tracks user activity
+document.onmousemove = function() {
+  clearTimeout(inactivityTime);
+  inactivityTime = setTimeout(function() {
+    // Make AJAX request to reset session timeout
+    $.ajax({
+      url: 'reset_session_timeout.php',
+      type: 'GET',
+      success: function(response) {
+        console.log('Session timeout reset');
+      },
+      error: function(xhr, status, error) {
+        console.error('Error resetting session timeout', error);
+      }
+    });
+  }, 60000); // Set timeout to 1 minute
+};
+
+document.onkeypress = function() {
+  clearTimeout(inactivityTime);
+  inactivityTime = setTimeout(function() {
+    // Make AJAX request to reset session timeout
+    $.ajax({
+      url: 'reset_session_timeout.php',
+      type: 'GET',
+      success: function(response) {
+        console.log('Session timeout reset');
+      },
+      error: function(xhr, status, error) {
+        console.error('Error resetting session timeout', error);
+      }
+    });
+  }, 60000); // Set timeout to 1 minute
+};
+
+document.ontouchstart = function() {
+  clearTimeout(inactivityTime);
+  inactivityTime = setTimeout(function() {
+    // Make AJAX request to reset session timeout
+    $.ajax({
+      url: 'reset_session_timeout.php',
+      type: 'GET',
+      success: function(response) {
+        console.log('Session timeout reset');
+      },
+      error: function(xhr, status, error) {
+        console.error('Error resetting session timeout', error);
+      }
+    });
+  }, 60000); // Set timeout to 1 minute
+};
