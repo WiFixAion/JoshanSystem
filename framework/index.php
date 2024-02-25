@@ -50,17 +50,24 @@ var_dump(is_session_timeout());
 </head>
 <body>
 
-    <div id="header">
-      <h2>Welcome *User* Access Level: *Access Level*</h2>
+
+<header class="index-header">
+    <div class="container">
+        <h2>Welcome *User* Access Level: *Access Level*</h2>
     </div>
-<div id="wrapper">
-  <div id="menu">
-      <a href="index.php">Home</a> | 
-      <a href="index.php?page=appointment">Appointment</a> | 
-      <a href="#">Link 4</a> |
-      <a href="index.php?page=settings">Settings</a> | <a href="logout.php" class="move-right">Log Out</a>
-  </div>
-  <div id="content">
+</header>
+
+<nav class="index-navbar">
+    <div class="container">
+        <a href="index.php" class="<?php echo ($page === '' || $page === 'home') ? 'active' : ''; ?>">Home</a> | 
+        <a href="index.php?page=appointment" class="<?php echo ($page === 'appointment') ? 'active' : ''; ?>">Appointment</a> | 
+        <a href="#" class="<?php echo ($page === 'link4') ? 'active' : ''; ?>">Link 4</a> |
+        <a href="index.php?page=settings" class="<?php echo ($page === 'settings') ? 'active' : ''; ?>">Settings</a> |
+        <a href="logout.php" class="move-right">Log Out</a>
+    </div>
+</nav>
+
+<div class="index-content">
     <?php
 
       switch($page){
